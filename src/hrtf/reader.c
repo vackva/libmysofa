@@ -14,7 +14,6 @@
 #include "../hdf/reader.h"
 #include "config.h"
 #include "mysofa.h"
-#include "mysofa_export.h"
 #include "portable_endian.h"
 
 /* checks file address.
@@ -368,7 +367,7 @@ struct MYSOFA_HRTF *load(struct READER *reader, int *err) {
   return hrtf;
 }
 
-MYSOFA_EXPORT struct MYSOFA_HRTF *mysofa_load(const char *filename, int *err) {
+ struct MYSOFA_HRTF *mysofa_load(const char *filename, int *err) {
 
   struct READER reader;
 
@@ -390,7 +389,7 @@ MYSOFA_EXPORT struct MYSOFA_HRTF *mysofa_load(const char *filename, int *err) {
   return hrtf;
 }
 
-MYSOFA_EXPORT struct MYSOFA_HRTF *
+ struct MYSOFA_HRTF *
 mysofa_load_data(const char *data, const size_t size, int *err) {
   struct READER reader;
 
@@ -399,11 +398,11 @@ mysofa_load_data(const char *data, const size_t size, int *err) {
   reader.memory_len = size;
   reader.fhd = NULL;
 
-  struct MYSOFA_HRTF *hrtf = load(&reader, err);
+struct MYSOFA_HRTF *hrtf = load(&reader, err);
   return hrtf;
 }
 
-MYSOFA_EXPORT void mysofa_free(struct MYSOFA_HRTF *hrtf) {
+ void mysofa_free(struct MYSOFA_HRTF *hrtf) {
   if (!hrtf)
     return;
 
@@ -436,7 +435,7 @@ MYSOFA_EXPORT void mysofa_free(struct MYSOFA_HRTF *hrtf) {
   free(hrtf);
 }
 
-MYSOFA_EXPORT void mysofa_getversion(int *major, int *minor, int *patch) {
+ void mysofa_getversion(int *major, int *minor, int *patch) {
   *major = CPACK_PACKAGE_VERSION_MAJOR;
   *minor = CPACK_PACKAGE_VERSION_MINOR;
   *patch = CPACK_PACKAGE_VERSION_PATCH;

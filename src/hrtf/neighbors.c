@@ -6,14 +6,13 @@
  */
 
 #include "mysofa.h"
-#include "mysofa_export.h"
 #include "tools.h"
 #include <float.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-MYSOFA_EXPORT struct MYSOFA_NEIGHBORHOOD *
+ struct MYSOFA_NEIGHBORHOOD *
 mysofa_neighborhood_init(struct MYSOFA_HRTF *hrtf,
                          struct MYSOFA_LOOKUP *lookup) {
   return mysofa_neighborhood_init_withstepdefine(
@@ -21,7 +20,7 @@ mysofa_neighborhood_init(struct MYSOFA_HRTF *hrtf,
       MYSOFA_DEFAULT_NEIGH_STEP_RADIUS);
 }
 
-MYSOFA_EXPORT struct MYSOFA_NEIGHBORHOOD *
+ struct MYSOFA_NEIGHBORHOOD *
 mysofa_neighborhood_init_withstepdefine(struct MYSOFA_HRTF *hrtf,
                                         struct MYSOFA_LOOKUP *lookup,
                                         float angleStep, float radiusStep) {
@@ -151,14 +150,14 @@ mysofa_neighborhood_init_withstepdefine(struct MYSOFA_HRTF *hrtf,
   return neighbor;
 }
 
-MYSOFA_EXPORT int *mysofa_neighborhood(struct MYSOFA_NEIGHBORHOOD *neighborhood,
+ int *mysofa_neighborhood(struct MYSOFA_NEIGHBORHOOD *neighborhood,
                                        int index) {
   if (index < 0 || index >= neighborhood->elements)
     return NULL;
   return neighborhood->index + index * 6;
 }
 
-MYSOFA_EXPORT void
+ void
 mysofa_neighborhood_free(struct MYSOFA_NEIGHBORHOOD *neighborhood) {
   if (neighborhood) {
     free(neighborhood->index);

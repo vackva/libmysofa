@@ -12,10 +12,9 @@
 
 #include "kdtree.h"
 #include "mysofa.h"
-#include "mysofa_export.h"
 #include "tools.h"
 
-MYSOFA_EXPORT struct MYSOFA_LOOKUP *
+ struct MYSOFA_LOOKUP *
 mysofa_lookup_init(struct MYSOFA_HRTF *hrtf) {
   int i;
   struct MYSOFA_LOOKUP *lookup;
@@ -92,7 +91,7 @@ mysofa_lookup_init(struct MYSOFA_HRTF *hrtf) {
  * BE AWARE: The coordinate vector will be normalized if required
  * A return value of -1 = MYSOFA_INTERNAL_ERROR indicates an error
  */
-MYSOFA_EXPORT int mysofa_lookup(struct MYSOFA_LOOKUP *lookup,
+ int mysofa_lookup(struct MYSOFA_LOOKUP *lookup,
                                 float *coordinate) {
 
   int index;
@@ -119,7 +118,7 @@ MYSOFA_EXPORT int mysofa_lookup(struct MYSOFA_LOOKUP *lookup,
   return index;
 }
 
-MYSOFA_EXPORT void mysofa_lookup_free(struct MYSOFA_LOOKUP *lookup) {
+ void mysofa_lookup_free(struct MYSOFA_LOOKUP *lookup) {
   if (lookup) {
     kd_free((struct kdtree *)lookup->kdtree);
     free(lookup);

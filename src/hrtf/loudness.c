@@ -7,7 +7,6 @@
 
 #include "../resampler/speex_resampler.h"
 #include "mysofa.h"
-#include "mysofa_export.h"
 #include "tools.h"
 #include <assert.h>
 #include <float.h>
@@ -16,7 +15,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-MYSOFA_EXPORT float mysofa_loudness(struct MYSOFA_HRTF *hrtf) {
+float mysofa_loudness(struct MYSOFA_HRTF *hrtf) {
   float c[3], factor;
   float min = FLT_MAX;
   int radius = 0;

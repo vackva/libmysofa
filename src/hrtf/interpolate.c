@@ -6,7 +6,6 @@
  */
 
 #include "mysofa.h"
-#include "mysofa_export.h"
 #include "tools.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,7 +13,7 @@
 
 /* #define VDEBUG */
 
-MYSOFA_EXPORT float *mysofa_interpolate(struct MYSOFA_HRTF *hrtf,
+float *mysofa_interpolate(struct MYSOFA_HRTF *hrtf,
                                         float *cordinate, int nearest,
                                         int *neighborhood, float *fir,
                                         float *delays) {

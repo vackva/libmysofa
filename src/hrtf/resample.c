@@ -7,7 +7,6 @@
 
 #include "../resampler/speex_resampler.h"
 #include "mysofa.h"
-#include "mysofa_export.h"
 #include "tools.h"
 #include <assert.h>
 #include <math.h>
@@ -15,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-MYSOFA_EXPORT int mysofa_resample(struct MYSOFA_HRTF *hrtf, float samplerate) {
+ int mysofa_resample(struct MYSOFA_HRTF *hrtf, float samplerate) {
   int i, err;
   float factor;
   unsigned newN;

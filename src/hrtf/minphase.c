@@ -6,7 +6,6 @@
  */
 
 #include "mysofa.h"
-#include "mysofa_export.h"
 #include "tools.h"
 #include <assert.h>
 #include <float.h>
@@ -45,7 +44,7 @@ static void trunk(float *in, int size, int *start, int *end, float threshold) {
   *end = e + 1;
 }
 
-MYSOFA_EXPORT int mysofa_minphase(struct MYSOFA_HRTF *hrtf, float threshold) {
+ int mysofa_minphase(struct MYSOFA_HRTF *hrtf, float threshold) {
   int i;
   int max = 0;
   int filters;

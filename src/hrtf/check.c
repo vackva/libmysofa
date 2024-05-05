@@ -1,6 +1,5 @@
 #include "../hdf/reader.h"
 #include "mysofa.h"
-#include "mysofa_export.h"
 #include "tools.h"
 #include <math.h>
 #include <stdio.h>
@@ -22,7 +21,7 @@ static const float array000[] = {0, 0, 0};
 static const float array001[] = {0, 0, 1};
 static const float array100[] = {1, 0, 0};
 
-MYSOFA_EXPORT int mysofa_check(struct MYSOFA_HRTF *hrtf) {
+ int mysofa_check(struct MYSOFA_HRTF *hrtf) {
 
   /* check for valid parameter ranges */
   /*
