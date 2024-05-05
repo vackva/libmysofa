@@ -1,5 +1,11 @@
 cmake_minimum_required(VERSION 3.22)
 
+if (MSVC)
+  set(ZLIB_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/windows/third-party/zlib-1.3.1-static)
+  set(ZLIB_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/windows/third-party/zlib-1.3.1-static/include)
+  find_package(ZLIB REQUIRED)
+endif ()
+
 project(libmysofa C CXX)
 
 include(CheckCCompilerFlag)
