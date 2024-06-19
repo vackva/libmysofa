@@ -40,8 +40,6 @@ if(C_HAS_WALL)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
 endif(C_HAS_WALL)
 
-set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -DDEBUG -DVDEBUG")
-
 if(${ADDRESS_SANITIZE} STREQUAL "ON")
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address -O1 -fno-omit-frame-pointer -g")
 endif()
